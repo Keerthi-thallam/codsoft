@@ -1,0 +1,47 @@
+# codsoft task-1
+
+def calculator():
+    print("Simple Calculator")
+    
+    try:
+        num_type = input("Do you want to enter numbers as integers or floats? (int/float): ").strip().lower()
+        
+        if num_type == "int":
+            num1 = int(input("Enter first number: "))
+            num2 = int(input("Enter second number: "))
+        elif num_type == "float":
+            num1 = float(input("Enter first number: "))
+            num2 = float(input("Enter second number: "))
+        else:
+            print("Invalid choice. Please enter 'int' or 'float'.")
+            return
+        
+        print("Choose an operation:")
+        print("1. Addition (+)")
+        print("2. Subtraction (-)")
+        print("3. Multiplication (*)")
+        print("4. Division (/)")
+        
+        choice = input("Enter the operation (+, -, *, /): ")
+        
+        if choice == '+':
+            result = num1 + num2
+        elif choice == '-':
+            result = num1 - num2
+        elif choice == '*':
+            result = num1 * num2
+        elif choice == '/':
+            if num2 == 0:
+                print("Error: Division by zero is not allowed.")
+                return
+            result = num1 / num2
+        else:
+            print("Invalid operation. Please try again.")
+            return
+        
+        print(f"Result: {num1} {choice} {num2} = {result}")
+    except ValueError:
+        print("Invalid input. Please enter numbers only.")
+
+if __name__ == "__main__":
+    calculator()
